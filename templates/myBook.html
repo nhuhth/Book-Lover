@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Thêm link tới Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/home.css">
+    <title>Bootstrap Header, Body, Footer Layout</title>
+
+    <style>
+        header {
+            background-color: #A0522D;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="bg-warning text-dark py-3">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Logo -->
+            <div class="col-md-3">
+                <a href="{{ url_for('home') }}" class="text-dark  text-decoration-none">
+                    <img src="../static/images/logo.png" alt="">
+                </a>
+            </div>
+
+            <!-- Menu -->
+            <div class="col-md-6">
+                <nav class="navbar navbar-expand-md">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('home') }}" style="font-weight: bold;font-size: 20px;font-family: 'Times New Roman', Times, serif;">HOME</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('myBook') }}" style="font-weight: bold;font-size: 20px;font-family: 'Times New Roman', Times, serif;">MY BOOK</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('search') }}" style="font-weight: bold;font-size: 20px;font-family: 'Times New Roman', Times, serif;">SEARCH</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('profile') }}" style="font-weight: bold;font-size: 20px;font-family: 'Times New Roman', Times, serif;">PROFILE</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <!-- logout -->
+            <div class="col-md-3">
+                <form class="d-flex" method="post" action="{{ url_for('login') }}">
+                    <button class="btn btn-outline-light" type="submit">Logout</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+<!-- Body -->
+<div class="container mt-4">
+    <div class="row">
+        <h1>Book List</h1>
+    </div>
+    <div class="row">
+        <!-- Cột phụ (Sidebar) -->
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        Bookshelves
+                    </div>
+                    <div class="row">
+                        <nav class="col-md-12 d-none d-md-block sidebar">
+                            <div class="position-sticky">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link active card-title" href="/myBook">
+                                            All
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link card-title" href="/myBook?status=1">
+                                            Read
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link card-title" href="/myBook?status=2">
+                                            Reading
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link card-title" href="/myBook?status=3">
+                                            Want to read
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Cột chính -->
+        <div class="col-md-9">
+            <div class="card">
+                <div class="input-group mb-3">
+                    <div class="container mt-4">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Author</th>
+                                    <th>Avr rating</th>
+                                    <th>Shelves</th>
+                                    <th>My notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for book in books %}
+                                <tr>
+                                    <td>{{ book[0] }}</td>
+                                    <td>{{ book[1] }}</td>
+                                    <td>{{ book[2] }}</td>
+                                    <td>{{ book[4] }}</td>
+                                    <td>
+                                        <button class="btn btn-bg">
+                                            <a class="nav-link" href="{{ url_for('myNote', book_id=book[5]) }}">View</a>
+                                        </button>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Thêm link tới Bootstrap JS và Popper.js (nếu cần) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Thêm link tới Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <!-- Include flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.css">
+
+    <!-- Include flatpickr JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.js"></script>
+    <link rel="stylesheet" href="../static/css/home.css">
+    <title>Search</title>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="bg-warning text-dark py-3">
+        <div class="container">
+            <div class="row">
+                <!-- Logo -->
+                <div class="col-md-3">
+                    <a href="{{ url_for('home') }}" class="text-dark  text-decoration-none">
+                        <img src="../static/images/logo.png" alt="">
+                    </a>
+                </div>
+
+                <!-- Menu -->
+                <div class="col-md-6">
+                    <nav class="navbar navbar-expand-md">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('home') }}" style="font-weight: bold;font-size: 20px;font-family: 'Times New Roman', Times, serif;">HOME</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('myBook') }}" style="font-weight: bold;font-size: 20px;font-family: 'Times New Roman', Times, serif;">MY BOOK</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('search') }}" style="font-weight: bold;font-size: 20px;font-family: 'Times New Roman', Times, serif;">SEARCH</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('profile') }}" style="font-weight: bold;font-size: 20px;font-family: 'Times New Roman', Times, serif;">PROFILE</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+
+
+            </div>
+        </div>
+    </header>
+
+    <div class="container mt-4">
+        <h1>{{ book[0][0] }}</h1>
+        <form method="POST" action="">
+            <div class="mb-3">
+                <label for="Status" class="form-label">Status :</label>
+                <select class="form-select" id="Status" name="Status">
+                    <option value="read" {% if book[0][1] == 'read' %} selected {% endif %}>Read</option>
+                    <option value="reading" {% if book[0][1] == 'reading' %} selected {% endif %}>Reading</option>
+                    <option value="to-read" {% if book[0][1] == 'to-read' %} selected {% endif %}>To-Read</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="Author" class="form-label">Author :</label>
+                <input type="text" class="form-control" id="Author" name="Author" value="{{ book[0][2] }} " readonly>
+            </div>
+            <div class="mb-3 col-2">
+                <label for="StartDate" class="form-label">Start Date : </label>
+                <input type="text" class="form-control" id="StartDate" name="StartDate" value="{{ book[0][3] }}">
+            </div>
+            <div class="mb-3 col-2">
+                <label for="FinishDate" class="form-label">Finish Date : </label>
+                <input type="text" class="form-control " id="FinishDate" name="FinishDate" value="{{ book[0][4] }}">
+            </div>
+            <div class="mb-3">
+                <label for="Notes" class="form-label">Notes : </label>
+                <textarea type="text" class="form-control" id="Notes" name="Notes" rows="6"
+                    value="">{{ book[0][5] }}</textarea>
+            </div>
+            <div class="row mb-3">
+                <button type="submit" class="btn btn-bg col-1">Save</button>
+                <div class="col-1"></div>
+                <button class="btn btn-bg col-1"><a class="nav-link"
+                        href="{{ url_for('myBook',status= book[0][6]) }}">Cancel</a></button>
+            </div>
+            <div class="row"></div>
+        </form>
+    </div>
+
+
+    <!-- Thêm link tới Bootstrap JS và Popper.js (nếu cần) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            flatpickr("#FinishDate", {
+                // Options here
+                dateFormat: "Y-m-d", // Customize the date format
+                enableTime: false, // Disable time selection

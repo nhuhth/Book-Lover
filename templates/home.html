@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Thêm link tới Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/home.css">
+
+    <title>Home</title>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="bg-warning text-dark py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Logo -->
+                <div class="col-md-3">
+                    <a href="{{ url_for('home') }}" class="text-dark  text-decoration-none">
+                        <img src="../static/images/logo.png" alt="">
+                    </a>
+                </div>
+
+                <!-- Menu -->
+                <div class="col-md-6">
+                    <nav class="navbar navbar-expand-md">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('home') }}" style="font-weight: bold;font-size: 20px;font-family: 'Times New Roman', Times, serif;">HOME</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('myBook') }}" style="font-weight: bold;font-size: 20px;font-family: 'Times New Roman', Times, serif;">MY BOOK</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('search') }}" style="font-weight: bold;font-size: 20px;font-family: 'Times New Roman', Times, serif;">SEARCH</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ url_for('profile') }}" style="font-weight: bold;font-size: 20px;font-family: 'Times New Roman', Times, serif;">PROFILE</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+
+                <!-- logout -->
+                <div class="col-md-3">
+                    <form class="d-flex" method="post" action="{{ url_for('login') }}">
+                        <button class="btn btn-outline-light" type="submit">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Body -->
+    <div class="container">
+        <div class="row mt-4">
+            <img src="../static/images/hn2.png" alt="">
+        </div>
+        <div class="row mt-4">
+            <!-- Cột phụ (Sidebar) -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="fs-1 text-center card-header" style="font-weight: bold;font-size: 30px;font-family: 'Times New Roman', Times, serif;">BOOK SEARCH</div>
+                        <div class="fs-3 text-center card-title" style="font-weight: bold;font-size: 25px;font-family: 'Times New Roman', Times, serif;"> Persuing Book Collection</div>
+                        <div class="row justify-text px-4">Welcome to a literary adventure where words come to life and stories unfold.
+                            Our curated book list is a gateway to diverse worlds, each bound within the pages of
+                            captivating narratives. Dive into a realm of imagination and emotion as you explore a
+                            collection carefully selected to ignite your curiosity and transport you to places unknown.
+                            From timeless classics to contemporary gems, our bookshelf reflects a tapestry of genres,
+                            offering something for every reader. Embark on a journey with us through the power of
+                            storytelling, where every page turned is an invitation to discover new perspectives,
+                            cultures, and the limitless possibilities that lie within the written word. Start your
+                            exploration now and let the magic of literature inspire your own unique adventure.
+                        </div>
+                        <div class="row">
+                            <div class="col-12 btn-padding-top">
+                                <button type="button" class="btn btn-danger"><a class="nav-link"
+                                        href="{{ url_for('search') }}">Search</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="../static/images/hn1.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row mt-4">
+            <!-- Cột phụ (Sidebar) -->
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="../static/images/Picture3.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <!-- Content for the 1st column -->
+                                <p class="fs-1 text-center card-header" style="font-weight: bold;font-size: 30px;font-family: 'Times New Roman', Times, serif;">BOOKSHELF COLLECTION</p>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <!-- Content for the 2nd column -->
+                            <p class="fs-3 text-center card-title" style="font-weight: bold;font-size: 25px;font-family: 'Times New Roman', Times, serif;"> A journey Through Your Bookshelf</p>
+                        </div>
+
+                        <style>
+                        .justify-text {
+                            text-align: justify;
+                            text-justify: inter-word;
+                        }
+                        </style>
+
+                        <div class="row justify-text px-4">Create a sanctuary of inspiration and imagination with "Your Bookshelf," where
+                            the power to build your dream collection lies at your fingertips. Dive into the world of
+                            literature and curate a personalized haven filled with the stories that resonate with your
+                            soul. From cherished classics to contemporary favorites, embark on a journey of
+                            self-discovery through the characters, themes, and adventures that speak to you. Each book
+                            becomes a cherished companion, and your bookshelf transforms into a reflection of your
+                            unique literary identity. Whether you seek escapism, knowledge, or pure entertainment, let
+                            "Your Bookshelf" be the canvas for your personal narrative, where every book is a chapter in
+                            the story of your evolving literary journey. Build, explore, and savor the joy of creating a
+                            collection that truly belongs to you.
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-end btn-padding-top">
+                                <button type="button" class="btn btn-danger"><a class="nav-link"
+                                        href="{{ url_for('myBook') }}">Creating</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Thêm link tới Bootstrap JS và Popper.js (nếu cần) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

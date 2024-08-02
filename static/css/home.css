@@ -1,0 +1,50 @@
+:root {
+    --my-color: #feefdc;
+    --color-card-header :#A0522D;
+    --color-card-title:#500808;
+  }
+  
+  body {
+    background-color: var(--my-color);
+  }
+  .card{
+    background-color: var(--my-color);
+    border: none;
+  }
+
+  .card-header {
+    color: var(--color-card-header);
+    border-bottom: 2px RED;
+  }
+  .btn-color{
+    color: var(--color-card-header);
+
+  }
+  .btn-bg{
+    background-color: var(--color-card-header);
+    color: white;
+  }
+  .card-title{
+    color : var(--color-card-title);
+  }
+
+  .btn-padding-top{
+    padding-top: 10px;
+  }
+  .nav{
+    background: none;
+  }
+
+  th{
+    background-color:var(--color-card-header) !important;
+    color: white !important;
+  }
+  td{
+    background-color: var(--my-color) !important;
+  }
+
+  input{
+    background-color: var(--my-color) !important;
+  }
+  
+  
