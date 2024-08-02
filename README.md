@@ -30,21 +30,22 @@ Ensure you have the following software installed:
 - **Login:** Users need to enter their correct username and password, then click on the "Login" button to proceed to the homepage and utilize the website's features.
 
 - **Home Page:** After logging in, users will be directed to the system's home page, where they can navigate to different pages based on their preferences, such as searching for books or managing personal book lists.
-  ![homepage](https://github.com/user-attachments/assets/f6cbe5b2-ea61-41d5-8d11-9caa15d4bd0f)
+![homepage](https://github.com/user-attachments/assets/f6cbe5b2-ea61-41d5-8d11-9caa15d4bd0f)
 
 
 - **Create Your Book Lists:** The "Bookshelves" section allows users to organize books into categories like "All," "Read," "Reading," and "Want to read."
+
 ![image](https://github.com/user-attachments/assets/1a73b5bb-a53d-4a97-9665-c31374bcec8d)
 
 - **My Notes**: All information on the ”Mynote" page is filled in by the user to remember that information.
-- ![image](https://github.com/user-attachments/assets/223a4440-43be-4ee1-9feb-ad60b7b34c5f)
+![image](https://github.com/user-attachments/assets/223a4440-43be-4ee1-9feb-ad60b7b34c5f)
 
 
 
 - **Search Page:** Users can search for books by title or author name. The results will display basic information about each book.
-- ![image](https://github.com/user-attachments/assets/069edbf0-29b6-4e49-bbca-8227638611c4)
-![image](https://github.com/user-attachments/assets/80995108-f620-4f64-b3f9-6ef8a645c306)
+![image](https://github.com/user-attachments/assets/069edbf0-29b6-4e49-bbca-8227638611c4) ![image](https://github.com/user-attachments/assets/80995108-f620-4f64-b3f9-6ef8a645c306)
 
 
-- **Profile:** Users can view and edit their profile information and check statistics about their reading habits.![image](https://github.com/user-attachments/assets/fd358372-0cb8-4ebc-a377-bbf8c986818e)
+- **Profile:** Users can view and edit their profile information and check statistics about their reading habits.
+![image](https://github.com/user-attachments/assets/fd358372-0cb8-4ebc-a377-bbf8c986818e)
 
